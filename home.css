@@ -1,0 +1,17 @@
+.video-bar-container {
+  width: 1880px;
+  height: 1000px;
+  background-color: rgb(184, 231, 179);
+}
+
+.our-coffee-container {
+  width: 1880px;
+  height: 920px;
+  background-color: aquamarine;
+}
+
+.our-coffee-top {
+  width: 1880px;
+  height: 100px;
+  background-color: rgb(207, 146, 105);
+}
