@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="maplocator.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+
+    <title>Map_Locator</title>
+  </head>
+  <body>
+    <div id="nav-bar">
+      <img src="assets/costa-coffee-logo.png" alt="costa-coffee-logo" />
+      <ul id="nav-list">
+        <li class="nav-li"><a href="">Our Story</a></li>
+        <li class="nav-li"><a href="">Our menu</a></li>
+        <li class="nav-li"><a href="">Costa Club</a></li>
+        <li class="nav-li"><a href="">Order Online</a></li>
+        <li class="nav-li"><a href="">Behind the Beans</a></li>
+        <li class="nav-li"><a href="" class="active">Store Locator</a></li>
+        <li class="nav-li"><a href="">What's New!</a></li>
+      </ul>
+    </div>
+    <div class="mapsearch">
+      <div class="search">
+        <div class="filtersearch">
+          <div class="filtersearch-filter">
+            <button><img src="/assets/filter.png" /></button>
+          </div>
+          <div class="filtersearch-input">
+            <input type="text" id="search-input" placeholder="Type to Search" />
+          </div>
+          <div class="filtersearch-button">
+            <button type="submit" id="search-button">
+              <img src="/assets/search.png" alt="Search" />
+            </button>
+          </div>
+        </div>
+        <div class="stores"></div>
+      </div>
+      <div class="map">
+        <div class="toggle-search-class">
+          <button id="toggle-search" onclick="changeToggleButtonText()">
+            &lt;
+          </button>
+        </div>
+        <div class="locateme">
+          <button class="locatemebutton" onclick="Locateme()">
+            <img src="/assets/locateme.png" />
+          </button>
+        </div>
+        <div class="map" id="map-section"></div>
+      </div>
+    </div>
+  </body>
+  <section class="footer-productinfo">
+    <div class="footer-costacoffee">
+      <h5>Costa Coffee</h5>
+      <a href="">Our coffees</a>
+      <a href="">Help and advice</a>
+      <a href="">Costa Club</a>
+      <a href="">How to guides</a>
+      <a href="">FAQs</a>
+    </div>
+    <div class="footer-dietary-information">
+      <h5>Costa Coffee</h5>
+      <a href="">Detailed dietary information</a>
+    </div>
+    <div class="footer-behindthebeans">
+      <h5>Behind the beans</h5>
+      <a href="">Behind the Beans</a>
+      <a href="">Costa Foundation</a>
+      <a href="">Responsible sourcing</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-list">
+      <a href="">Policies and terms of use</a>
+      <p>© 2023 Costa Coffee. All rights reserved.</p>
+    </div>
+    <div class="footer-icons">
+      <ul class="social-list">
+        <li>
+          <a
+            href="https://www.facebook.com/Costa-Coffee-%C3%96sterreich-110726417922322/"
+            class="facebook-link"
+          >
+            <img
+              src="https://images.ctfassets.net/27hc2gu70btq/2iIP38op14DbdRhkJLoPNf/8b6d1847cf089e5fc70160c32fca4c22/facebook.svg"
+              alt="Costa Coffee Facebook"
+              class="facebook-icon"
+            />
+          </a>
+        </li>
+        <li class="insta-link">
+          <a href="https://www.instagram.com/costacoffeeindia/?hl=en" class="">
+            <img
+              src="https://images.ctfassets.net/27hc2gu70btq/5UXzVzRq89VGA3cbidkkX0/9c01113e991a4728bedfd07aba5907af/instagram.svg"
+              alt="Costa Coffee Instagram"
+              class="insta-icon"
+            />
+          </a>
+        </li>
+        <li class="twitter-link">
+          <a href="https://twitter.com/CostaCoffeeInd" class="">
+            <img
+              src="https://images.ctfassets.net/27hc2gu70btq/7vOx07c0sEUaDeGsMF26Wz/8a720c59ff98fdbd97411107c288c546/twitter.png"
+              alt="Twitter"
+              class="twitter-icon"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  <script src="/maplocator.js"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</html>
