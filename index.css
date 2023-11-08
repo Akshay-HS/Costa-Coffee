@@ -1,0 +1,150 @@
+.middle-body-container {
+  display: flex;
+  /* flex-direction: row; */
+}
+
+.our-coffee-leftDiv {
+  flex: 1;
+  width: 200px;
+  height: 480px;
+  background-color: #cadce5;
+  text-align: center;
+}
+
+.our-coffee-rightDiv {
+  flex: 1;
+  width: 200px;
+  height: 480px;
+  background-color: #b0ddf5;
+  color: #6d1f37;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 0px;
+}
+.our-coffee-textDiv {
+  width: 370px;
+  margin-left: 100px;
+}
+.our_coffee_img {
+  max-width: 100%;
+  height: auto;
+}
+
+.our-coffee-title {
+  margin-top: 90px;
+}
+.our-coffee-menuButton {
+  background-color: #6d1f37;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  height: 50px;
+  width: 300px;
+  margin-top: 30px;
+}
+
+/* 
+///////////////////////////////////////////////////////////// */
+
+@font-face {
+  font-family: Costa Text Regular;
+  src: url(https://www.costacoffee.in/static/CostaText-Regular-d819baeadd703ec19dd54fce7aba0a91.woff2)
+    format("woff2");
+}
+.footer-productinfo {
+  height: 350px;
+  background-color: #b51144;
+  display: flex;
+}
+.footer-costacoffee {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: xx-large;
+  margin-left: 40px;
+  margin-top: 40px;
+  font-weight: 500;
+}
+.footer-costacoffee a {
+  text-decoration: none;
+  color: #ffffff;
+  padding-bottom: 5px;
+  font-size: x-large;
+}
+.footer-dietary-information {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: xx-large;
+  margin-left: 80px;
+  margin-top: 40px;
+  font-weight: 500;
+}
+.footer-dietary-information a {
+  text-decoration: none;
+  color: #ffffff;
+  padding-bottom: 5px;
+  font-size: x-large;
+}
+.footer-behindthebeans {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: xx-large;
+  margin-left: 80px;
+  margin-top: 40px;
+  font-weight: 500;
+}
+.footer-behindthebeans a {
+  text-decoration: none;
+  color: #ffffff;
+  padding-bottom: 5px;
+  font-size: x-large;
+}
+footer {
+  color: rgb(255, 255, 255);
+  bottom: 0;
+  height: 275px;
+  background-color: #6d1f37;
+  font-family: "Costa Text Regular", sans-serif;
+  font-size: large;
+  flex-flow: wrap;
+  max-width: 1392px;
+  margin: 0px auto;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.footer-list {
+  margin-bottom: 50px;
+}
+.footer-list p {
+  margin-top: 50px;
+}
+footer ul {
+  list-style-type: none;
+  left: 0;
+}
+.social-list {
+  display: flex;
+  padding: 0;
+}
+.facebook-icon {
+  height: 30px;
+  margin-right: 20px;
+}
+.insta-icon {
+  height: 30px;
+  margin-right: 20px;
+}
