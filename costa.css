@@ -1,32 +1,63 @@
-.left-container{
-    
-    background-color: #d7bad6;
-    height: 400px;
-    width: 60%;
-padding-left: 20px;
+/* .coffeeimg img{
+    width: 100%;
 }
-.right-container{
-    background-color:blanchedalmond;
-    width:40%;
+.topimage{
+    position: relative;
 }
-#menuHead{
-    color:#6d1f37;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: xx-large;
+.toptext{
+    position:absolute;
 }
-#menuText{
-    color:black;
-    font-family:'Times New Roman', Times, serif;
-    font-size: x-large;
-}
-.container{
+.top{
     display: flex;
+} */
+/* #nav-bar-food{
+    background-color: yellow;
+    color: white;
+    height: 100px;
+    text-align: center;
 }
-#dynamicImage{
-    width:100%;
-    height: 400px;
+#nav-bar-foodtxt{
+padding-top: 50%;
+} */
+#nav-bar-food {
+    background-color: #b51144; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100px; 
+}
 
-}
+  .nav-bar-foodtxt a {
+    color: #fff; 
+    text-decoration: none; 
+    padding: 10px; 
+    transition: color 0.3s; 
+  }
+  .bgimg {
+    background-image: url("/bgpic.jpeg"); /* Set the background image for .bgimg */
+    background-size: cover; /* Scale the background image to cover the entire container */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center center; /* Center the background image both horizontally and vertically */
+    /* Add any additional styles for .bgimg */
+  }
+  .menu-item-container{
+    display: flex;
+    width: 60%;
+    padding-left: 25%;
+  }
+  
+  .right-container,.left-container{
+    padding: 10px;
+    background-color: white;
+    flex: 1;
+  }
+  
+  .nav-bar-foodtxt a:hover {
+    background-color: lightpink;
+    color: black; /* Change link text color to a different color on hover */
+  }
+  
+
 
 #nav-bar {
     background-color: black;
