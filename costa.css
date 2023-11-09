@@ -1,24 +1,4 @@
-/* .coffeeimg img{
-    width: 100%;
-}
-.topimage{
-    position: relative;
-}
-.toptext{
-    position:absolute;
-}
-.top{
-    display: flex;
-} */
-/* #nav-bar-food{
-    background-color: yellow;
-    color: white;
-    height: 100px;
-    text-align: center;
-}
-#nav-bar-foodtxt{
-padding-top: 50%;
-} */
+
 #nav-bar-food {
     background-color: #b51144; 
     display: flex; 
@@ -32,6 +12,12 @@ padding-top: 50%;
     text-decoration: none; 
     padding: 10px; 
     transition: color 0.3s; 
+  }
+  .main-img{
+    background-image: url("/coffee.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
   }
   .bgimg {
     background-image: url("/bgpic.jpeg"); /* Set the background image for .bgimg */
