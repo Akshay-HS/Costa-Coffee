@@ -10,12 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isSearchVisible) {
       // Hide the search section
       searchSection.style.display = "none";
-      mapSection.style.flex = 6.5; // Expand the map to full width
+      mapSection.style.flex = 9.5; // Expand the map to full width
+     // mapSection.style.width = "1080px";
     } else {
       // Show the search section
       searchSection.style.display = "block";
       mapSection.style.flex = 1;
-      mapSection.style.width = 150; // Restore the map width
+      mapSection.style.width = "1080px";
+      //mapSection.style.width = 150; // Restore the map width
     }
     isSearchVisible = !isSearchVisible;
   });
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
   });
 
-  var map = L.map("map-section").setView([10.29, 76.25], 13);
+  map = L.map("map-section").setView([10.29, 76.25], 13);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
