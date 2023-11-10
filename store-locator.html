@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="maplocator.css" />
+    <link rel="stylesheet" href="style/maplocator.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -13,14 +13,22 @@
   </head>
   <body>
     <div id="nav-bar">
-      <img src="assets/costa-coffee-logo.png" alt="costa-coffee-logo" />
       <ul id="nav-list">
-        <li class="nav-li"><a href="">Our Story</a></li>
-        <li class="nav-li"><a href="">Our menu</a></li>
+        <li id="nav-li-1">
+          <a href="index.html">
+            <img src="assets/costa-coffee-logo.png" alt="costa-coffee-logo"
+          /></a>
+        </li>
+        <li class="nav-li"><a href="our-story.html">Our Story</a></li>
+        <li class="nav-li"><a href="our-menu.html">Our menu</a></li>
         <li class="nav-li"><a href="">Costa Club</a></li>
-        <li class="nav-li"><a href="">Order Online</a></li>
-        <li class="nav-li"><a href="">Behind the Beans</a></li>
-        <li class="nav-li"><a href="" class="active">Store Locator</a></li>
+        <li class="nav-li"><a href="order-online.html">Order Online</a></li>
+        <li class="nav-li">
+          <a href="behind-the-beans.html">Behind the Beans</a>
+        </li>
+        <li class="nav-li">
+          <a href="maplocator.html" class="active">Store Locator</a>
+        </li>
         <li class="nav-li"><a href="">What's New!</a></li>
       </ul>
     </div>
@@ -129,6 +137,6 @@
       </ul>
     </div>
   </footer>
-  <script src="/maplocator.js"></script>
+  <script src="js/maplocator.js"></script>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </html>
