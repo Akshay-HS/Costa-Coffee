@@ -2,35 +2,44 @@
 <html lang="en">
   <head>
     <title>Our Menu</title>
-    <script src="menu.js"></script>
-    <link rel="stylesheet" href="costa.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Lobster&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <script src="/menu.js"></script>
+    <link rel="stylesheet" href="menu.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
   <body>
-    <div id="nav-bar">
-      <img src="logo.png" alt="costa-coffee-logo" />
-      <ul id="nav-list">
-        <li class="nav-li">Our Story</li>
-        <li class="nav-li">Our menu</li>
-        <li class="nav-li">Costa Club</li>
-        <li class="nav-li">Order Online</li>
-        <li class="nav-li">Behind the Beans</li>
-        <li class="nav-li">Store Locator</li>
-        <li class="nav-li">What's New!</li>
-      </ul>
-    </div>
     <div class="main-img">
+      <div id="nav-bar">
+        <ul id="nav-list">
+          <li id="nav-li-1">
+            <a href="our-menu.html">
+              <img src="/assets/logo.png" alt="costa-coffee-logo"
+            /></a>
+          </li>
+          <li class="nav-li"><a href="our-story.html">Our Story</a></li>
+          <li class="nav-li"><a href="our-menu.html">Our menu</a></li>
+          <li class="nav-li"><a href="">Costa Club</a></li>
+          <li class="nav-li"><a href="order-online.html">Order Online</a></li>
+          <li class="nav-li"><a href="behind-the-beans.html">Behind the Beans</a></li>
+          <li class="nav-li"><a href="store-locator.html">Store Locator</a></li>
+          <li class="nav-li"><a href="whats-new.html">What's New!</a></li>
+        </ul>
+      </div>
+
       <div class="main-txt">
         <h1>Our Menu</h1>
+        <br />
         <p>
           Our menu’s full of the good stuff. Whatever your diet or preferences,
           there’s enough choice for everyone.
         </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
 
@@ -40,32 +49,20 @@
         <a href="#drinks">Drinks</a>
       </div>
     </div>
-    <div class="bgimg">
-      <div class="menu-item-container">
-        <div class="left-container">
-          <h2>Espresso</h2>
-          <p>
-            Perfectly extracted, this short, aromatic, intense drink contains
-            all the best flavour from our coffee beans.
-          </p>
-        </div>
+    <div class="bgimg" id="maincontainer">
+      <div id="main-container"></div>
+    </div>
+    <div class="bgimg" id="maincontainer">
+      <div id="main"></div>
 
-        <div class="right-container">
-          <img src="/Untitled.jpg" />
-        </div>
-      </div>
-      <div class="menu-item-container">
-        <div class="right-container">
-          <img src="/Untitled.jpg" />
-        </div>
-        <div class="left-container">
-          <h2>Espresso</h2>
-          <p>
-            Perfectly extracted, this short, aromatic, intense drink contains
-            all the best flavour from our coffee beans.
-          </p>
-        </div>
-      </div>
+    <div id="cookieButton" class="round-button">
+      <div id="normalIcon" class="icon">🍪</div>
+      <div id="rotatedIcon" class="icon">❌</div>
+    </div>
+    <div id="cookieDialog" class="cookie-dialog">
+      <h1>Cookie Consent</h1>
+      <p>We use cookies to improve your experience on our website.</p>
+      <button id="acceptButton" class="accept-button">Accept</button>
     </div>
 
     <section class="footer-productinfo">

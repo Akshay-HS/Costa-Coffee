@@ -1,32 +1,57 @@
-
+*{
+  margin:0;
+  padding: 0;
+}
 #nav-bar-food {
     background-color: #b51144; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    height: 100px; 
+    height: 80px; 
+}
+#foodimg{
+  width: 300px;
+  height: 200px;
 }
 
   .nav-bar-foodtxt a {
+    font-family: 'Libre Franklin', sans-serif;
     color: #fff; 
     text-decoration: none; 
     padding: 10px; 
+    font-size: 25px;
+    padding-right: 30px;
     transition: color 0.3s; 
   }
   .main-img{
-    background-image: url("/coffee.jpeg");
+    background-image: url("/assets/OurMenubg.jpg");
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center center;
+    height: 70%;
+  }
+  .main-txt h1{
+    padding-top: 20px;
+    font-family: 'Anton', sans-serif;
+    padding-left: 22%;
+  font-size: 40px;
+  color: #6d1f37;
+  }
+  .main-txt p{
+    color: #6d1f37;
+    padding-left: 15px;
+    font-size: 20px;
+    width: 30%;
+    padding-left: 15%;
   }
   .bgimg {
-    background-image: url("/bgpic.jpeg"); /* Set the background image for .bgimg */
+    background-image: url("/assets/bgpic.jpeg"); /* Set the background image for .bgimg */
     background-size: cover; /* Scale the background image to cover the entire container */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center; /* Center the background image both horizontally and vertically */
     /* Add any additional styles for .bgimg */
   }
-  .menu-item-container{
+  .menu-item-container,.menu-item-container2{
     display: flex;
     width: 60%;
     padding-left: 25%;
@@ -38,15 +63,13 @@
     flex: 1;
   }
   
-  .nav-bar-foodtxt a:hover {
-    background-color: lightpink;
+  /* .nav-bar-foodtxt a:hover {
+   text-decoration: underline;
     color: black; /* Change link text color to a different color on hover */
-  }
   
 
-
 #nav-bar {
-    background-color: black;
+   
     position: relative;
     z-index: 7;
     display: flex;
@@ -54,9 +77,13 @@
   }
   #nav-bar img {
     text-align: left;
-    width: 16%;
-    padding: 30px;
+    width: 50%;
+    /* padding: 30px; */
   }
+  #nav-li-1 {
+    margin-right: -200px;
+  }
+
    
   #nav-list {
     display: flex;
@@ -70,7 +97,10 @@
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
   }
-   
+  .nav-li a {
+    color: white;
+    text-decoration: none;
+  }
 
 @font-face {
     font-family: Costa Text Regular;
@@ -169,4 +199,67 @@
     height: 30px;
     margin-right: 20px;
   }
+  
+  /* cookie style */
    
+  .round-button {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: #6d1f37;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: transform 0.3s;
+  }
+   
+  .icon {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+  }
+   
+  #rotatedIcon {
+    display: none;
+    transform: rotate(45deg);
+  }
+   
+  #cookieButton.open {
+    transform: rotate(45deg);
+  }
+   
+  #cookieButton.open #normalIcon {
+    display: none;
+  }
+   
+  #cookieButton.open #rotatedIcon {
+    display: block;
+  }
+   
+  #cookieDialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    text-align: center;
+  }
+   
+  .accept-button {
+    background-color: #6d1f37;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
