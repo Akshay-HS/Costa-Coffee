@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Our Story</title>
+    <link rel="stylesheet" href="/our-story.css" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- Nav Bar -->
-
-    <!-- Video Bar -->
-    <div class="top-video-bar">
+    <!-- Nav bar and photo -->
+    <div class="top-container">
       <div id="nav-bar">
         <ul id="nav-list">
           <li id="nav-li-1">
@@ -29,20 +28,45 @@
           <li class="nav-li"><a href="whats-new.html">What's New!</a></li>
         </ul>
       </div>
-
-      <video width="1248" height="555" autoplay loop muted>
-        <source src="/assets/bannerV3.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div class="top-image-class">
+        <div class="our-coffee-topImage-div"></div>
+      </div>
+    </div>
+    <!-- Inside navigation -->
+    <div id="our-story-navbar">
+      <ul id="our-story-nav-list">
+        <li class="our-story-nav-li">
+          <a class="our-story-nav-menuItem" id="our-story-history" href=""
+            >History</a
+          >
+        </li>
+        <li class="our-story-nav-li">
+          <a class="our-story-nav-menuItem" id="our-story-roastery" href=""
+            >Roastery</a
+          >
+        </li>
+        <li class="our-story-nav-li">
+          <a class="our-story-nav-menuItem" id="our-story-ourCoffees" href=""
+            >Our Coffees</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Dynamic body -->
+    <div class="whole-body-container">
+      <p id="fake-pTag">2</p>
+      <script src="/javascript/index.js"></script>
+      <script>
+        createImageFirstDivision();
+      </script>
     </div>
 
-    <!-- Dynamic Body -->
-    <div class="whole-body-container"></div>
-    <!-- <p id="fake-pTag">4</p> -->
-    <script src="/javascript/index.js">
-      createImageFirstDivision();
-    </script>
     <!-- Footer -->
+    <!-- SVG element with a wave shape -->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#0099ff" fill-opacity="1" d="M0,128C120,192,360,256,600,128C840,0,1080,192,1440,128L1440,320L0,320Z"/>
+  </svg>
+   -->
     <section class="footer-productinfo">
       <div class="footer-costacoffee">
         <h5>Costa Coffee</h5>
@@ -107,5 +131,4 @@
       </div>
     </footer>
   </body>
-  <!-- <script src="javascript/home.js"></script> -->
 </html>
