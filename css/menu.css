@@ -45,7 +45,7 @@
     padding-left: 15%;
   }
   .bgimg {
-    background-image: url("/assets/bgpic.jpeg"); /* Set the background image for .bgimg */
+    background-image: url("/assets/bgpic.png"); /* Set the background image for .bgimg */
     background-size: cover; /* Scale the background image to cover the entire container */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center center; /* Center the background image both horizontally and vertically */
