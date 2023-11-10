@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="behind_the_beans.css" />
-    <link rel="icon" type="image/x-icon" href="assets/c.png" />
+    <link rel="icon" type="image/x-icon" href="image/c.png" />
     <title>Costa Coffee</title>
   </head>
   <body>
     <div id="nav-background">
       <div id="nav-background-left">
-        <h1 id="headingNav">Beahind the beans</h1>
+        <h1>Behind the beans</h1>
         <p>
           Our sustainability strategy, called Behind the <br />Beans, aims to
           craft more sustainable coffee — <br />
@@ -23,71 +23,25 @@
       </div>
     </div>
     <div id="nav-bar">
-      <img src="assets/costa-coffee-logo.png" alt="costa-coffee-logo" />
+      <img src="image/costa-coffee-logo.png" alt="costa-coffee-logo" />
       <ul id="nav-list">
-        <li class="nav-li"><a href="">Our Story</a></li>
-        <li class="nav-li"><a href="">Our menu</a></li>
-        <li class="nav-li"><a href="">Costa Club</a></li>
-        <li class="nav-li"><a href="">Order Online</a></li>
-        <li class="nav-li">
-          <a href="behind_the_beans.html">Behind the Beans</a>
-        </li>
-        <li class="nav-li"><a href="">Store Locator</a></li>
-        <li class="nav-li"><a href="">What's New!</a></li>
+        <li class="nav-li">Our Story</li>
+        <li class="nav-li">Our menu</li>
+        <li class="nav-li">Costa Club</li>
+        <li class="nav-li">Order Online</li>
+        <li class="nav-li">Behind the Beans</li>
+        <li class="nav-li">Store Locator</li>
+        <li class="nav-li">What's New!</li>
       </ul>
     </div>
     <div id="beans-navbar">
       <ul id="beans-nav-list">
-        <li class="beans-nav-li">
-          <a class="nav-a" id="nutrition-a" href="">Nutrition and well-being</a>
-        </li>
-        <li class="beans-nav-li">
-          <a class="nav-a" id="costa-foundation-a" href="">Costa Foundation</a>
-        </li>
-        <li class="beans-nav-li">
-          <a class="nav-a" id="responsible-a" href="">Responsible Sourcing</a>
-        </li>
+        <li class="beans-nav-li"><a class="nav-a" href="">Nutrition and well-being</a></li>
+        <li class="beans-nav-li"><a class="nav-a" href="">Costa Foundation</a></li>
+        <li class="beans-nav-li"><a class="nav-a" href="">Responsible Sourcing</a></li>
       </ul>
     </div>
-    <div id="container">
-      <script src="js/behind-the-beans.js"></script>
-      <!-- Make COffee -->
-      <div id="make-coffee">
-        <h1 id="make-head">Make Your Own Coffee</h1>
-        <div class="coffee-options">
-          <h2>Coffee Type:</h2>
-          <select id="coffee-type">
-            <option value="espresso">Espresso</option>
-            <option value="cappuccino">Cappuccino</option>
-            <option value="latte">Latte</option>
-          </select>
-          <hr />
-          <h2>Size:</h2>
-          <select id="coffee-size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-          </select>
-          <hr />
-          <h2>Milk:</h2>
-          <input type="radio" name="milk" value="whole" />Whole
-          <input type="radio" name="milk" value="2percent" />2% Milk
-          <input type="radio" name="milk" value="almond" />Almond Milk
-          <hr />
-          <h2>Sweeteners:</h2>
-          <input type="checkbox" id="sugar" value="sugar" />Sugar
-          <input type="checkbox" id="honey" value="honey" />Honey
-          <hr />
-          <h2>Flavors:</h2>
-          <input type="checkbox" id="vanilla" value="vanilla" />Vanilla
-          <input type="checkbox" id="caramel" value="caramel" />Caramel
-        </div>
-        <div class="price">
-          <p>Total Price: $<span id="total-price">0.00</span></p>
-        </div>
-      </div>
-      <!--  -->
-    </div>
+    <div id="container"></div>
     <div id="footer-all">
       <div class="footer-productinfo">
         <div class="footer-costacoffee">
@@ -108,16 +62,6 @@
           <a href="">Costa Foundation</a>
           <a href="">Responsible sourcing</a>
         </div>
-      </div>
-      <!-- cookie icon -->
-      <div id="cookieButton" class="round-button">
-        <div id="normalIcon" class="icon">🍪</div>
-        <div id="rotatedIcon" class="icon">❌</div>
-      </div>
-      <div id="cookieDialog" class="cookie-dialog">
-        <h1>Cookie Consent</h1>
-        <p>We use cookies to improve your experience on our website.</p>
-        <button id="acceptButton" class="accept-button">Accept</button>
       </div>
       <footer>
         <div class="footer-list">
@@ -164,8 +108,5 @@
       </footer>
     </div>
   </body>
-  <script src="js/nutrition.js"></script>
-  <script src="js/cookie.js"></script>
-  <script src="js/costa-foundation.js"></script>
-  <script src="js/responsible.js"></script>
+  <script src="js/main.js"></script>
 </html>
