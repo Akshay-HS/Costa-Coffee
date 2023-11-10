@@ -92,7 +92,7 @@ body {
 }
 /* foooter */
 #footer-all {
-  margin-top: -500px;
+  margin-top: -400px;
 }
 .footer-productinfo {
   height: 350px;
@@ -552,6 +552,9 @@ footer ul {
   width: 50%;
   padding-top: 30px;
   margin-left: 26%;
+  border-radius: 10%;
+  padding-bottom: 20px;
+  box-shadow: 5px 5px 5px;
 }
 
 #make-head {
@@ -560,21 +563,29 @@ footer ul {
 }
 .coffee-options {
   margin: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 5px;
+  border: 2px solid #ccc;
   text-align: center;
+  border-radius: 10%;
 }
 
 label,
 select,
 input {
   display: block;
-  margin: 5px 0;
+  padding: 5px;
+  margin: 5px auto;
+  border-radius: 10%;
 }
 
 .price {
   margin: 20px;
   font-weight: bold;
   text-align: center;
-  padding-bottom: 100px;
+  /* border: 1px solid red; */
+  width: fit-content;
+  margin-left: 35%;
+  padding: 20px;
+  border-radius: 20%;
+  box-shadow: 5px 5px 5px;
 }
