@@ -28,8 +28,23 @@
       <div class="search">
         <div class="filtersearch">
           <div class="filtersearch-filter">
-            <button><img src="/assets/filter.png" /></button>
+            <button id="show-filter-form">
+              <img src="/assets/filter.png" />
+            </button>
           </div>
+
+          <!-- Updated filter card to be a form with filter options -->
+          <form class="filter-form" style="display: none">
+            <label for="filter-type">Select Filter Type:</label>
+            <select id="filter-type" name="filter-type">
+              <option value="drive">Drive</option>
+              <option value="avenue">Avenue</option>
+              <option value="street">Street</option>
+            </select>
+
+            <button type="button" id="apply-filter">Apply Filter</button>
+          </form>
+
           <div class="filtersearch-input">
             <input type="text" id="search-input" placeholder="Type to Search" />
           </div>
@@ -43,9 +58,7 @@
       </div>
       <div class="map">
         <div class="toggle-search-class">
-          <button id="toggle-search" onclick="changeToggleButtonText()">
-            &lt;
-          </button>
+          <button id="toggle-search">&lt;</button>
         </div>
         <div class="locateme">
           <button class="locatemebutton" onclick="Locateme()">

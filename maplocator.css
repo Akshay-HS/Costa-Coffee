@@ -142,8 +142,15 @@ body {
 }
 .stores {
   margin-left: 20px;
-  width: 250px;
+  width: 100%;
   font-weight: 400;
+  font-size: medium;
+  overflow: auto;
+  max-height: calc(100vh - 100px);
+}
+.stores hr {
+  width: 350px;
+  margin-right: 40px;
 }
 .locatemebutton {
   position: absolute;
@@ -165,6 +172,9 @@ body {
   width: 50px;
   margin-top: 2px;
   margin-right: 2px;
+}
+.store-item {
+  cursor: pointer;
 }
 .footer-productinfo {
   height: 350px;
