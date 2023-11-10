@@ -96,6 +96,7 @@ function responsibleNewContent(container) {
   p5.textContent =
     "We don’t tolerate any form of slavery, forced labour or human trafficking – within our own business, across the operations of our franchisees and business partners, suppliers and wider supply chain.";
   container.appendChild(p5);
+  
 
   // You can add more content here as needed
 }

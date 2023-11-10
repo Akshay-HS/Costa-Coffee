@@ -42,10 +42,12 @@ body {
 }
 #nav-bar img {
   text-align: left;
-  width: 16%;
-  padding: 30px;
+  width: 50%;
+  /* padding: 30px; */
 }
-
+#nav-li-1 {
+  margin-right: -200px;
+}
 #nav-list {
   display: flex;
   list-style: none;
@@ -546,7 +548,7 @@ footer ul {
 
 /* Make COffee */
 #make-coffee {
-  background-color: rgb(175, 114, 115);
+  background: linear-gradient(rgb(255, 165, 167), rgb(134, 87, 88));
   margin-bottom: 50px;
   height: 900px;
   width: 50%;
@@ -582,10 +584,29 @@ input {
   margin: 20px;
   font-weight: bold;
   text-align: center;
-  /* border: 1px solid red; */
   width: fit-content;
   margin-left: 35%;
   padding: 20px;
   border-radius: 20%;
   box-shadow: 5px 5px 5px;
+}
+#foundation-globe {
+  height: 500px;
+  margin-top: -50px;
+  width: 100%;
+}
+.foundation-main-div {
+  display: flex;
+  margin-top: 250px;
+  height: 500px;
+}
+.foundation-left-div {
+  flex: 1;
+  text-align: center;
+  flex: 1;
+  background-color: rgb(176, 221, 245);
+}
+.foundation-right-div {
+  flex: 1;
+  overflow: hidden;
 }

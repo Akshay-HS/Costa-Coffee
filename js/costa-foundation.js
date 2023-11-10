@@ -59,6 +59,54 @@ function costaNewContent(container) {
   button2.addEventListener("click", openDialog);
   button2.style.cursor = "pointer";
   container.appendChild(button2);
+  const img2 = document.createElement("img");
+  img2.id = "foundation-globe";
+  img2.src = "assets/globe.png";
+  container.appendChild(img2);
+  const p3 = document.createElement("p");
+  p3.id = "nutrition-p3";
+  p3.textContent =
+    "10 different countries across the coffee belt now benefit from a Costa Foundation school project, including Colombia, Uganda and Vietnam";
+  container.appendChild(p3);
+  // Create the main div
+  const mainDiv = document.createElement("div");
+  mainDiv.classList.add("foundation-main-div");
+  container.appendChild(mainDiv);
+
+  // Create the left div
+  const leftDiv = document.createElement("div");
+  leftDiv.classList.add("foundation-left-div");
+
+  // Apply a background color to the left div (e.g., red)
+  // leftDiv.style.backgroundColor = "aqua";
+
+  // Create and append an h1 and p to the left div
+  const div_h1 = document.createElement("h1");
+  div_h1.id = "responsible-div-h";
+  div_h1.textContent = "Student stories";
+  leftDiv.appendChild(div_h1);
+
+  const p = document.createElement("p");
+  p.id = "responsible-div-p";
+  p.textContent =
+    "Each of the children who have attended a Costa Foundation school so far is a unique individual with their own story to tell. Like Jennifer, in Honduras, who had to drop out of school to support her two younger brothers and herself when she lost her parents. Thanks to the Costa Foundation Jennifer is again back in school. Learn all about Jennifer's journey, and others helped by the Costa Foundation, by following the link to the Costa Foundation's website.";
+  leftDiv.appendChild(p);
+  const button = document.createElement("button");
+  button.className = "learn-button";
+  button.textContent = "Learn More ➤";
+  leftDiv.appendChild(button);
+  // Create the right div
+  const rightDiv = document.createElement("div");
+  rightDiv.classList.add("foundation-right-div");
+
+  // Create an image element and set its source
+  const image = document.createElement("img");
+  image.src = "assets/costa-foundation-student.png"; // Set the image source as needed
+  rightDiv.appendChild(image);
+
+  // Append the left and right divs to the main div
+  mainDiv.appendChild(leftDiv);
+  mainDiv.appendChild(rightDiv);
   // You can add more content here as needed
 }
 const myDialog = document.createElement("dialog");

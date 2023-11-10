@@ -83,4 +83,5 @@ function newContent() {
   a1.href = "";
   a1.textContent = "Costa Foundation ➤";
   div2.appendChild(a1);
+  const founddiv = document.createElement("div");
 }
