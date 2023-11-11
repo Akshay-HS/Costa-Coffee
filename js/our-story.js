@@ -3,6 +3,7 @@
     const response = await fetch("https://picsum.photos/v2/list");
     const data = await response.json();
 
+    //create main image at the top
     const imageUrl = data[Math.floor(Math.random() * 29)].download_url;
 
     const topimageElement = document.createElement("img");
@@ -15,6 +16,7 @@
     );
     coffeeTopImageDiv.appendChild(topimageElement);
 
+    //create an information section
     function createImageFirstDivision(rowCount) {
       var whole_body_container = document.querySelector(
         ".whole-body-container"
@@ -73,25 +75,30 @@
     }
     createImageFirstDivision(2);
 
+    //to clear division and add new information to the same division
     const clickedOurStory = document.getElementById("our-story-ourCoffees");
     clickedOurStory.addEventListener("click", function coffeeHistoryPage() {
       // function coffeeHistoryPage() {
       const wholeBodyContainer = document.querySelector(
         ".whole-body-container"
       );
+      //clearing the division
       while (wholeBodyContainer.firstChild) {
         wholeBodyContainer.removeChild(wholeBodyContainer.firstChild);
       }
+      //create coffee sections and their information on the page
       for (i = 1; i < 6; i++) {
-        console.log("hi");
+        //container for the whole section
         var coffeeHistory_middle_container = document.createElement("div");
         coffeeHistory_middle_container.classList.add(
           "coffeeHistory-middleBody-container"
         );
+        //left division
         var coffeeHistory_section_leftDiv = document.createElement("div");
         coffeeHistory_section_leftDiv.classList.add(
           "coffeeHistory-section-leftDiv"
         );
+        //elements in the section
         var coffeeHistory_image = document.createElement("img");
         const imageElement = document.createElement("img");
         imageElement.src = data[Math.floor(Math.random() * 29)].download_url;
@@ -99,10 +106,12 @@
         coffeeHistory_image = imageElement;
         coffeeHistory_image.classList.add("coffeeHistory_img");
 
+        //right division
         var coffeeHistory_section_rightDiv = document.createElement("div");
         coffeeHistory_section_rightDiv.classList.add(
           "coffeeHistory-section-rightDiv"
         );
+        //elements in the section
         var coffeeHistory_title = document.createElement("h1");
         coffeeHistory_title.classList.add("coffeeHistory-title");
         coffeeHistory_title.textContent = "Espresso";
@@ -111,6 +120,7 @@
         var coffeeHistory_text = document.createTextNode(
           "The Espresso is where it all begins. Its rich aroma is the heartbeat of all our coffees. We craft one simple shot of our intense roast for the most elegant of drinks."
         );
+        //assign elements to either left or right divisions
         if (i % 2 == 0) {
           coffeeHistory_section_leftDiv.appendChild(coffeeHistory_image);
           coffeeHistory_section_rightDiv.appendChild(coffeeHistory_title);
@@ -127,6 +137,7 @@
         coffeeHistory_middle_container.appendChild(
           coffeeHistory_section_rightDiv
         );
+        //link all the elements to their divisions
         wholeBodyContainer.appendChild(coffeeHistory_middle_container);
         var blank_space_div = document.createElement("div");
         blank_space_div.classList.add("blank-space-div-history");
