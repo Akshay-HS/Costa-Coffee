@@ -77,6 +77,11 @@ body {
 .toggle-search-class button:hover {
   background-color: #b30000;
 }
+
+.filtersearch {
+  display: flex;
+  margin-top: 25px;
+}
 .filtersearch-filter button {
   width: 80px;
   height: 55px;
@@ -93,11 +98,6 @@ body {
   margin-top: 2px;
   margin-right: -10px;
   height: 35px;
-}
-
-.filtersearch {
-  display: flex;
-  margin-top: 25px;
 }
 
 #search-input {
@@ -119,6 +119,11 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+.filtersearch img {
+  margin-left: -10px;
+  width: 30px;
+}
 #search-button {
   border: none;
   height: 54px;
@@ -130,10 +135,6 @@ body {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   cursor: pointer;
-}
-.filtersearch img {
-  margin-left: -10px;
-  width: 30px;
 }
 #search-button:hover {
   background-color: #b30000;
@@ -151,9 +152,13 @@ body {
   overflow: auto;
   max-height: calc(100vh - 100px);
 }
+
 .stores hr {
   width: 350px;
   margin-right: 40px;
+}
+.store-item {
+  cursor: pointer;
 }
 .locatemebutton {
   position: absolute;
@@ -175,9 +180,6 @@ body {
   width: 50px;
   margin-top: 2px;
   margin-right: 2px;
-}
-.store-item {
-  cursor: pointer;
 }
 .footer-productinfo {
   height: 350px;
@@ -231,6 +233,67 @@ body {
   color: #ffffff;
   padding-bottom: 5px;
   font-size: x-large;
+}
+.round-button {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  width: 60px;
+  height: 60px;
+  background-color: #6d1f37;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.icon {
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+#rotatedIcon {
+  display: none;
+  transform: rotate(45deg);
+}
+
+#cookieButton.open {
+  transform: rotate(45deg);
+}
+
+#cookieButton.open #normalIcon {
+  display: none;
+}
+
+#cookieButton.open #rotatedIcon {
+  display: block;
+}
+
+#cookieDialog {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  text-align: center;
+}
+
+.accept-button {
+  background-color: #6d1f37;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 footer {
   color: rgb(255, 255, 255);
