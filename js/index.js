@@ -1,20 +1,14 @@
-fetch("https://picsum.photos/v2/list")
-  .then((response) => response.json())
-  .then((data) => {
-    var whole_body_container = document.querySelector(".whole-body-container");
+(async function () {
+  try {
+    const response = await fetch("https://picsum.photos/v2/list");
+    const data = await response.json();
 
     function createImageFirstDivision(rowCount) {
-      const top_image_div = document.querySelector(".top-image-class");
-      const coffeeTopImageDiv = document.querySelector(
-        ".our-coffee-topImage-div"
+      var whole_body_container = document.querySelector(
+        ".whole-body-container"
       );
-      var ourCoffeeTopImage = document.createElement("img");
-      ourCoffeeTopImage.src = data[Math.floor(Math.random() * 29)].download_url;
-      ourCoffeeTopImage.alt = "Coffee Image";
-      ourCoffeeTopImage.classList.add("our-coffee-img");
-      top_image_div.appendChild(ourCoffeeTopImage);
-
       for (i = 1; i <= rowCount; i++) {
+        console.log("hi");
         var middle_body_container = document.createElement("div");
         middle_body_container.classList.add("middle-body-container");
         var our_coffee_leftDiv = document.createElement("div");
@@ -65,9 +59,9 @@ fetch("https://picsum.photos/v2/list")
         blank_space_div.classList.add("blank-space-div");
         whole_body_container.appendChild(blank_space_div);
       }
-      // document.body.appendChild(middle_body_container);
     }
-    createImageFirstDivision(
-      parseInt(document.getElementById("fake-pTag").textContent)
-    );
-  });
+    createImageFirstDivision(4);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+})();
