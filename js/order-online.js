@@ -19,13 +19,13 @@ div1.appendChild(description);
 
 const div2=document.createElement("div");//container for image
 div2.className="div2";
-const cupImg=document.createElement("img");
+/*const cupImg=document.createElement("img");
 cupImg.src = "/assets/cup (2).png";
 cupImg.className="cup";
-div2.appendChild(cupImg);
+div2.appendChild(cupImg);*/
 //appending div1 and div2 to topContainer
 Containerdiv.appendChild(div1);
-Containerdiv.appendChild(div2);
+   //Containerdiv.appendChild(div2);
 //appending topContainer to Containerdiv
 topContainer.appendChild(Containerdiv);
 

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Rest of your JavaScript code for "Costa Foundation" here
 });
 
+// Function to create content for Costa Foundation
 function createCostaFoundationContent() {
   const container = document.getElementById("container");
 
@@ -19,31 +20,55 @@ function createCostaFoundationContent() {
   }
 
   // Call the costaNewContent function to add new content for Costa Foundation
-  costaNewContent(container);
+  costaNewContent(container, setRandomImage);
 }
 
-function costaNewContent(container) {
+async function setRandomImage() {
+  try {
+    const response = await fetch("https://picsum.photos/v2/list/?limit=100");
+    const data = await response.json();
+
+    // Set random images for elements with specific IDs
+    document.getElementById("nav-background-image").src =
+      data[Math.floor(Math.random() * 99)].download_url;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+//
+setRandomImage();
+
+// Function to add content specific to Costa Foundation
+function costaNewContent(container, callback) {
+  //
+  callback();
+  //
   // Create and append content specific to Costa Foundation
   const headingNav = document.getElementById("headingNav");
   headingNav.textContent = "Costa Foundation";
+
   const h1 = document.createElement("h1");
   h1.id = "costa-foundation-h1";
   h1.textContent = "Building schools and futures";
   container.appendChild(h1);
+
   const p1 = document.createElement("p");
   p1.id = "foundation-p1";
   p1.textContent =
     "The farmers who grow coffee around the world are an essential part of our business – we couldn’t keep inspiring the world to love great coffee without them! However, we know that many coffee-growing communities are in remote rural areas in some of the world’s poorest countries, and children in these communities often have little or no access to education.";
   container.appendChild(p1);
+
   const img1 = document.createElement("img");
   img1.id = "foundation-img1";
   img1.src = "assets/costa-foundation-img.jpg";
   container.appendChild(img1);
+
   const p2 = document.createElement("p");
   p2.id = "foundation-p2";
   p2.textContent =
     "The mission of the Costa Foundation is to fund schools and school projects in coffee-growing communities which provide the opportunity to access a safe, quality education. The charity does this by:";
   container.appendChild(p2);
+
   const button1 = document.createElement("button");
   button1.id = "costa-foundation-button1";
   button1.href = "";
@@ -59,15 +84,18 @@ function costaNewContent(container) {
   button2.addEventListener("click", openDialog);
   button2.style.cursor = "pointer";
   container.appendChild(button2);
+
   const img2 = document.createElement("img");
   img2.id = "foundation-globe";
   img2.src = "assets/globe.png";
   container.appendChild(img2);
+
   const p3 = document.createElement("p");
   p3.id = "nutrition-p3";
   p3.textContent =
     "10 different countries across the coffee belt now benefit from a Costa Foundation school project, including Colombia, Uganda and Vietnam";
   container.appendChild(p3);
+
   // Create the main div
   const mainDiv = document.createElement("div");
   mainDiv.classList.add("foundation-main-div");
@@ -76,9 +104,7 @@ function costaNewContent(container) {
   // Create the left div
   const leftDiv = document.createElement("div");
   leftDiv.classList.add("foundation-left-div");
-
-  // Apply a background color to the left div (e.g., red)
-  // leftDiv.style.backgroundColor = "aqua";
+  leftDiv.style.backgroundColor = "rgb(207,168,202)";
 
   // Create and append an h1 and p to the left div
   const div_h1 = document.createElement("h1");
@@ -91,10 +117,12 @@ function costaNewContent(container) {
   p.textContent =
     "Each of the children who have attended a Costa Foundation school so far is a unique individual with their own story to tell. Like Jennifer, in Honduras, who had to drop out of school to support her two younger brothers and herself when she lost her parents. Thanks to the Costa Foundation Jennifer is again back in school. Learn all about Jennifer's journey, and others helped by the Costa Foundation, by following the link to the Costa Foundation's website.";
   leftDiv.appendChild(p);
+
   const button = document.createElement("button");
   button.className = "learn-button";
   button.textContent = "Learn More ➤";
   leftDiv.appendChild(button);
+
   // Create the right div
   const rightDiv = document.createElement("div");
   rightDiv.classList.add("foundation-right-div");
@@ -109,6 +137,8 @@ function costaNewContent(container) {
   mainDiv.appendChild(rightDiv);
   // You can add more content here as needed
 }
+
+// Create the dialog boxes
 const myDialog = document.createElement("dialog");
 myDialog.id = "my-dialog";
 myDialog.innerHTML = `

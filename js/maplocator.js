@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  // Add a marker with the custom icon to the map
 });
 fetch("https://dummyjson.com/users")
   .then((response) => response.json())
@@ -232,4 +231,3 @@ document.addEventListener("DOMContentLoaded", function () {
       searchStores(selectedFilterType);
     });
 });
-// Existing code...
