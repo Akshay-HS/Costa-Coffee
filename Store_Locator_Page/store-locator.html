@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/maplocator.css" />
+    <link rel="stylesheet" href="/Store_Locator_Page/style/maplocator.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -16,18 +16,28 @@
       <ul id="nav-list">
         <li id="nav-li-1">
           <a href="index.html">
-            <img src="assets/costa-coffee-logo.png" alt="costa-coffee-logo"
+            <img
+              src="/Store_Locator_Page/assets/costa-coffee-logo.png"
+              alt="costa-coffee-logo"
           /></a>
         </li>
-        <li class="nav-li"><a href="our-story.html">Our Story</a></li>
-        <li class="nav-li"><a href="our-menu.html">Our menu</a></li>
-        <li class="nav-li"><a href="">Costa Club</a></li>
-        <li class="nav-li"><a href="order-online.html">Order Online</a></li>
         <li class="nav-li">
-          <a href="behind-the-beans.html">Behind the Beans</a>
+          <a href="/Store_Locator_Page/our-story.html">Our Story</a>
         </li>
         <li class="nav-li">
-          <a href="maplocator.html" class="active">Store Locator</a>
+          <a href="/Store_Locator_Page/our-menu.html">Our menu</a>
+        </li>
+        <li class="nav-li"><a href="">Costa Club</a></li>
+        <li class="nav-li"><a href="/Store_Locator_Page/">Order Online</a></li>
+        <li class="nav-li">
+          <a href="/Store_Locator_Page/behind-the-beans.html"
+            >Behind the Beans</a
+          >
+        </li>
+        <li class="nav-li">
+          <a href="/Store_Locator_Page/store-locator.html" class="active"
+            >Store Locator</a
+          >
         </li>
         <li class="nav-li"><a href="">What's New!</a></li>
       </ul>
@@ -37,32 +47,36 @@
         <div class="filtersearch">
           <div class="filtersearch-filter">
             <button id="show-filter-form">
-              <img src="/assets/filter.png" />
+              <img src="/Store_Locator_Page/assets/filter.png" />
             </button>
           </div>
 
           <!-- Updated filter card to be a form with filter options -->
-          <form class="filter-form" style="display: none">
-            <label for="filter-type">Select Filter Type:</label>
-            <select id="filter-type" name="filter-type">
-              <option value="drive">Drive</option>
-              <option value="avenue">Avenue</option>
-              <option value="street">Street</option>
-            </select>
-
-            <button type="button" id="apply-filter">Apply Filter</button>
-          </form>
 
           <div class="filtersearch-input">
             <input type="text" id="search-input" placeholder="Type to Search" />
           </div>
           <div class="filtersearch-button">
             <button type="submit" id="search-button">
-              <img src="/assets/search.png" alt="Search" />
+              <img src="/Store_Locator_Page/assets/search.png" alt="Search" />
             </button>
           </div>
         </div>
-        <div class="stores"></div>
+        <div class="stores">
+          <form class="filter-form" style="display: none">
+            <label for="filter-type">Select Filter Type:</label>
+            <select id="filter-type" name="filter-type">
+              <option value="">Default</option>
+              <option value="drive">Select Filter</option>
+              <option value="avenue">Avenue</option>
+              <option value="street">Street</option>
+              <option value="court">Court</option>
+            </select>
+
+            <button type="button" id="apply-filter">Apply Filter</button>
+          </form>
+          <p class="no-results" style="display: none">No results found</p>
+        </div>
       </div>
       <div class="map">
         <div class="toggle-search-class">
@@ -70,7 +84,7 @@
         </div>
         <div class="locateme">
           <button class="locatemebutton" onclick="Locateme()">
-            <img src="/assets/locateme.png" />
+            <img src="/Store_Locator_Page/assets/locateme.png" />
           </button>
         </div>
         <div class="map" id="map-section"></div>
@@ -146,7 +160,7 @@
       </ul>
     </div>
   </footer>
-  <script src="js/maplocator.js"></script>
+  <script src="/Store_Locator_Page/js/maplocator.js"></script>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="js/cookie.js"></script>
+  <script src="/Store_Locator_Page/js/cookie.js"></script>
 </html>

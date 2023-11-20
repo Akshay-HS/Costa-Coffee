@@ -48,15 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
-
-  // Add a marker with a custom icon to the map (not implemented yet)
 });
 
 // Fetch data from an API endpoint
 // Wrap the fetch operation in a promise
-const fetchData = async () => {
+const fetchData = async (filterType) => {
   try {
-    const response = await fetch("https://dummyjson.com/users");
+    // Adjust the API endpoint based on the selected filter type
+    const apiUrl = `https://dummyjson.com/users?filter=${filterType}`;
+    const response = await fetch(apiUrl);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -159,21 +159,18 @@ async function showstoredetails(
   emailInput.type = "email";
   emailInput.placeholder = "Enter your email";
   emailInput.id = "subscribe-email";
+  emailInput.classList.add("subscribe-input");
 
   const subscribeButton = document.createElement("button");
   subscribeButton.textContent = "Subscribe";
-
-  subscribeButton.addEventListener("click", async () => {
-    try {
-      // Validate email format
-      const email = emailInput.value;
-      if (validateEmail(email)) {
-        alert(`Successfully subscribed with email: ${email}`);
-      } else {
-        alert("Invalid email format. Please enter a valid email address.");
-      }
-    } catch (error) {
-      console.error(error.message);
+  subscribeButton.classList.add("subscribe-btn");
+  subscribeButton.addEventListener("click", function () {
+    // Validate email format
+    const email = emailInput.value;
+    if (validateEmail(email)) {
+      alert(`Successfully subscribed with email: ${email}`);
+    } else {
+      alert("Invalid email format. Please enter a valid email address.");
     }
   });
 
@@ -195,78 +192,77 @@ function validateEmail(email) {
   return emailRegex.test(email);
 }
 
-// Function to show store details
-function showstoredetails(
-  namepass,
-  locationpass,
-  distancepass,
-  latitudepass,
-  longitudepass
-) {
-  // Clear existing content
-  document.querySelector(".stores").innerHTML = "";
+// Event listener for the search button
+document.getElementById("search-input").addEventListener("input", function () {
+  // Get the search input value and convert to lowercase
+  var searchInput = this.value.toLowerCase();
+  console.log(searchInput);
+  // Call the searchStores function with the search input
+  searchStores(searchInput);
+});
 
-  // Create elements for store details
-  const name = document.createElement("h2");
-  const location = document.createElement("p");
-  const distance = document.createElement("p");
+// Function to filter and display stores based on keyword
+// Function to filter and display stores based on keyword
+function searchStores(keyword) {
+  var storesContainer = document.querySelector(".stores");
+  var storeItems = storesContainer.getElementsByClassName("store-item");
+  var noResultsMessage = document.querySelector(".no-results");
 
-  // Populate store details
-  name.textContent = namepass;
-  location.textContent = locationpass;
-  distance.textContent = distancepass;
+  // Hide all store items and the no results message
+  for (var i = 0; i < storeItems.length; i++) {
+    storeItems[i].style.display = "none";
+  }
+  noResultsMessage.style.display = "none";
 
-  // Add store details to DOM
-  const storesContainer = document.querySelector(".stores");
-  storesContainer.appendChild(name);
-  storesContainer.appendChild(location);
-  storesContainer.appendChild(distance);
+  // Display matching store items or show no results message
+  var resultsFound = false;
+  for (var i = 0; i < storeItems.length; i++) {
+    var storeName = storeItems[i].querySelector("h2").textContent.toLowerCase();
+    var storeLocation = storeItems[i]
+      .querySelector("p")
+      .textContent.toLowerCase();
 
-  // Create a div for the newsletter subscription form
-  const newsletterDiv = document.createElement("div");
-  newsletterDiv.className = "newsletter-form";
-
-  // Create heading for the newsletter
-  const newsletterHeading = document.createElement("h2");
-  newsletterHeading.textContent = "Subscribe to our newsletter";
-
-  // Create form elements
-  const emailInput = document.createElement("input");
-  emailInput.type = "email";
-  emailInput.placeholder = "Enter your email";
-  emailInput.id = "subscribe-email";
-
-  const subscribeButton = document.createElement("button");
-  subscribeButton.textContent = "Subscribe";
-  subscribeButton.addEventListener("click", function () {
-    // Validate email format
-    const email = emailInput.value;
-    if (validateEmail(email)) {
-      alert(`Successfully subscribed with email: ${email}`);
-    } else {
-      alert("Invalid email format. Please enter a valid email address.");
+    if (storeName.includes(keyword) || storeLocation.includes(keyword)) {
+      storeItems[i].style.display = "block";
+      resultsFound = true;
     }
-  });
+  }
 
-  // Add form elements to the newsletter div
-  newsletterDiv.appendChild(newsletterHeading);
-  newsletterDiv.appendChild(emailInput);
-  newsletterDiv.appendChild(subscribeButton);
-
-  // Add newsletter div to the DOM
-  storesContainer.appendChild(newsletterDiv);
-
-  // Update map view to the selected store location
-  map.panTo([latitudepass, longitudepass]);
+  // If no results found, display the no results message
+  if (!resultsFound) {
+    noResultsMessage.style.display = "block";
+  }
 }
 
-// Function to validate email format
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+// Event listener for when the DOM content is loaded (again)
+document.addEventListener("DOMContentLoaded", function () {
+  // Get DOM elements for filter button and filter form
+  var filterButton = document.getElementById("show-filter-form");
+  var filterForm = document.querySelector(".filter-form");
+  var storesContainer = document.querySelector(".stores");
 
-// Function to get the user's current location
+  // Check if filter button and filter form exist
+  if (filterButton && filterForm && storesContainer) {
+    // Event listener for filter button click to toggle filter form visibility
+    filterButton.addEventListener("click", function () {
+      // Toggle filter form visibility
+      filterForm.style.display =
+        filterForm.style.display === "none" || filterForm.style.display === ""
+          ? "block"
+          : "none";
+    });
+  }
+
+  // Event listener for the apply filter button click
+  document
+    .getElementById("apply-filter")
+    .addEventListener("click", function () {
+      // Retrieve selected filter options and perform actions
+      var selectedFilterType = document.getElementById("filter-type").value;
+      // Handle fetched data and display stores based on the filter type
+      searchStores(selectedFilterType);
+    });
+});
 function Locateme() {
   if ("geolocation" in navigator) {
     // Request the user's current location
@@ -284,67 +280,3 @@ function Locateme() {
     alert("Geolocation is not available in your browser");
   }
 }
-
-// Event listener for the search button
-document.getElementById("search-button").addEventListener("click", function () {
-  // Get the search input value and convert to lowercase
-  var searchInput = document.getElementById("search-input").value.toLowerCase();
-  console.log(searchInput);
-  // Call the searchStores function with the search input
-  searchStores(searchInput);
-});
-
-// Function to filter and display stores based on keyword
-function searchStores(keyword) {
-  var storesContainer = document.querySelector(".stores");
-  var storeItems = storesContainer.getElementsByClassName("store-item");
-
-  // Hide all store items
-  for (var i = 0; i < storeItems.length; i++) {
-    storeItems[i].style.display = "none";
-  }
-
-  // Display matching store items
-  for (var i = 0; i < storeItems.length; i++) {
-    var storeName = storeItems[i].querySelector("h2").textContent.toLowerCase();
-    var storeLocation = storeItems[i]
-      .querySelector("p")
-      .textContent.toLowerCase();
-
-    if (storeName.includes(keyword) || storeLocation.includes(keyword)) {
-      storeItems[i].style.display = "block";
-    }
-  }
-}
-
-// Event listener for when the DOM content is loaded (again)
-document.addEventListener("DOMContentLoaded", function () {
-  // Get DOM elements for filter button and filter form
-  var filterButton = document.getElementById("show-filter-form");
-  var filterForm = document.querySelector(".filter-form");
-
-  // Check if filter button and filter form exist
-  if (filterButton && filterForm) {
-    // Event listener for filter button click to toggle filter form visibility
-    filterButton.addEventListener("click", function () {
-      filterForm.style.display =
-        filterForm.style.display === "none" || filterForm.style.display === ""
-          ? "block"
-          : "none";
-    });
-  }
-
-  // Event listener for the apply filter button click
-  document
-    .getElementById("apply-filter")
-    .addEventListener("click", function () {
-      // Retrieve selected filter options and perform actions
-      var selectedFilterType = document.getElementById("filter-type").value;
-
-      // Perform actions based on the selected filter options
-      console.log("Filter Type:", selectedFilterType);
-
-      // Pass the selected filter type to the searchStores function
-      searchStores(selectedFilterType);
-    });
-});
