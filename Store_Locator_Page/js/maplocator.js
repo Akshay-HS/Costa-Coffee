@@ -1,4 +1,5 @@
 // Global variable to store the Leaflet map
+
 var map;
 
 // Event listener for when the DOM content is loaded
@@ -96,7 +97,7 @@ fetchData()
       );
       name.textContent = `Costa-Coffee-${index + 1}`;
       location.textContent = user[index].address.address;
-      distance.textContent = user[index].height;
+      distance.textContent = user[index].address.postalCode;
       storescontainerdiv.addEventListener(
         "click",
         showstoredetails.bind(
@@ -146,13 +147,55 @@ async function showstoredetails(
   storesContainer.appendChild(location);
   storesContainer.appendChild(distance);
 
+  // Fetch manager details based on the store name
+  const managerDetails = await getManagerDetails(namepass);
+
+  // Create a div for manager details
+  const managerDiv = document.createElement("div");
+  managerDiv.className = "manager-details";
+
+  // Create elements for manager details
+  const managerName = document.createElement("p");
+  const managerNumber = document.createElement("p");
+  const managerEmail = document.createElement("p");
+
+  // Populate manager details
+  managerName.textContent = `Manager: ${managerDetails.manager_name}`;
+  managerNumber.textContent = `Contact: ${managerDetails.manager_num}`;
+  managerEmail.textContent = `Email: ${managerDetails.manager_email}`;
+
+  // Add manager details to the manager div
+  managerDiv.appendChild(managerName);
+  managerDiv.appendChild(managerNumber);
+  managerDiv.appendChild(managerEmail);
+
+  // Add manager div to the DOM
+  storesContainer.appendChild(managerDiv);
+
+  // Create a div for manager image
+  const managerImageDiv = document.createElement("div");
+  managerImageDiv.className = "manager-image";
+
+  // Create an image element for the manager's image
+  const managerImage = document.createElement("img");
+  managerImage.src = managerDetails.image_url;
+  managerImage.alt = "Manager's Image";
+  console.log(managerDetails.image_url);
+
+  // Add manager's image to the manager image div
+  managerImageDiv.appendChild(managerImage);
+
+  // Add manager image div to the DOM
+  storesContainer.appendChild(managerImageDiv);
+
   // Create a div for the newsletter subscription form
   const newsletterDiv = document.createElement("div");
   newsletterDiv.className = "newsletter-form";
 
   // Create heading for the newsletter
-  const newsletterHeading = document.createElement("h2");
+  const newsletterHeading = document.createElement("h3");
   newsletterHeading.textContent = "Subscribe to our newsletter";
+  newsletterHeading.className = "newsletter-heading";
 
   // Create form elements
   const emailInput = document.createElement("input");
@@ -167,7 +210,9 @@ async function showstoredetails(
   subscribeButton.addEventListener("click", function () {
     // Validate email format
     const email = emailInput.value;
+    const selectedStoreName = storesContainer.querySelector("h2").textContent;
     if (validateEmail(email)) {
+      saveSubscription(email, selectedStoreName);
       alert(`Successfully subscribed with email: ${email}`);
     } else {
       alert("Invalid email format. Please enter a valid email address.");
@@ -186,53 +231,84 @@ async function showstoredetails(
   map.panTo([latitudepass, longitudepass]);
 }
 
+// Function to fetch manager details based on store name
+async function getManagerDetails(storeName) {
+  const apiUrl = "https://mocki.io/v1/14902a7e-106f-4162-b39c-fdb132d286f6";
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    // Find the store with the matching store_name
+    const store = data.find((store) => store.store_name === storeName);
+
+    return store || {}; // Return an empty object if not found
+  } catch (error) {
+    console.error("Error fetching manager details:", error);
+    return {};
+  }
+}
+
 // Function to validate email format
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-// Event listener for the search button
-document.getElementById("search-input").addEventListener("input", function () {
-  // Get the search input value and convert to lowercase
-  var searchInput = this.value.toLowerCase();
-  console.log(searchInput);
-  // Call the searchStores function with the search input
-  searchStores(searchInput);
-});
+// ...
 
-// Function to filter and display stores based on keyword
-// Function to filter and display stores based on keyword
-function searchStores(keyword) {
-  var storesContainer = document.querySelector(".stores");
-  var storeItems = storesContainer.getElementsByClassName("store-item");
-  var noResultsMessage = document.querySelector(".no-results");
+function saveSubscription(email, store) {
+  // Check if localStorage is supported
+  if (typeof Storage !== "undefined") {
+    // Get existing subscriptions or initialize an empty array
+    const subscriptions =
+      JSON.parse(localStorage.getItem("subscriptions")) || [];
 
-  // Hide all store items and the no results message
-  for (var i = 0; i < storeItems.length; i++) {
-    storeItems[i].style.display = "none";
-  }
-  noResultsMessage.style.display = "none";
+    // Add the new subscription to the array
+    subscriptions.push({ email, store });
 
-  // Display matching store items or show no results message
-  var resultsFound = false;
-  for (var i = 0; i < storeItems.length; i++) {
-    var storeName = storeItems[i].querySelector("h2").textContent.toLowerCase();
-    var storeLocation = storeItems[i]
-      .querySelector("p")
-      .textContent.toLowerCase();
+    // Save the updated array back to localStorage
+    localStorage.setItem("subscriptions", JSON.stringify(subscriptions));
 
-    if (storeName.includes(keyword) || storeLocation.includes(keyword)) {
-      storeItems[i].style.display = "block";
-      resultsFound = true;
-    }
-  }
+    // Also, send the subscriptions to your Google Apps Script
+    sendSubscriptionToGoogleAppsScript(email, store);
 
-  // If no results found, display the no results message
-  if (!resultsFound) {
-    noResultsMessage.style.display = "block";
+    console.log("Subscription saved successfully.");
+  } else {
+    console.error("LocalStorage is not supported in this browser.");
   }
 }
+
+function sendSubscriptionToGoogleAppsScript(email, store) {
+  // Create a FormData object to send data to the server
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("store", store);
+
+  // Send a POST request to your Google Apps Script web app
+  fetch(
+    "https://script.google.com/macros/s/AKfycbxcwZncMu8JFJx9TOYcNJN7-HwR7-I9jcJIPV6vG89HUqGLYI1lTfxepvojYTAJH3FX/exec",
+    {
+      method: "POST",
+      body: formData,
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.result === "success") {
+        console.log(
+          "Subscription data sent to Google Apps Script successfully."
+        );
+      } else {
+        console.error("Error sending subscription data:", data.error);
+      }
+    })
+    .catch((error) => {
+      console.error("Error sending subscription data:", error);
+    });
+}
+
+// ...
 
 // Event listener for when the DOM content is loaded (again)
 document.addEventListener("DOMContentLoaded", function () {
